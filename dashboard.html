@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Exercício Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+        integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        #brand {
+            font-size: 3em;
+            color: #4d1694;
+        }
+
+        #toast {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 99;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container me-auto" class="bg-white">
+                <a class="navbar-brand" href="#" id='brand'>Bootstrap</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Entrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabilitado</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <div id="toast" role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-bs-autohide="false">
+            <div class="toast-header bg-primary text-white">
+                <strong class="me-auto">AVISO</strong>
+                <small>11 mins atrás</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Você pode realizar a avaliação no <a href="#formulario">formulário</a>
+            </div>
+        </div>
+
+        <section class="row d-flex justify-content-center" id="cursos">
+            <div class="col-md-4 d-flex justify-content-center">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3iHW9F8U24tel7OWvX4YKDzZH1n8Kt42Zsw&usqp=CAU"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">CSS 3</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's
+                            content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex justify-content-center">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIDmu608ZZN0qZpKeJPh9mBUml69d1-lsGcA&usqp=CAU"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">HTML 5</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's
+                            content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex justify-content-center">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">JS</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's
+                            content.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="row mt-5" id="checklists">
+
+            <div class="col-md-6">
+                <h3>Checklist de exercícios realizados</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" value="" checked aria-label="...">
+                        Exercício 01
+                    </li>
+                    <li class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                        Exercício 02
+                    </li>
+                    <li class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                        Exercício 03
+                    </li>
+                    <li class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                        Exercício 04
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3>Material de estudo</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        Estrutura básica HTML
+                    </li>
+                    <li class="list-group-item">
+                        Bootstrap - Introdução
+                    </li>
+                    <li class="list-group-item">
+                        CSS3 - Seletores
+                    </li>
+                    <li class="list-group-item">
+                        SASS, LESSs
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+
+        <section class="row mt-5 justify-content-center" id="formulario">
+
+            <div class="col-md-6">
+                <h3>Avalie o curso</h3>
+                <form class="row g-3">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Seu nome</label>
+                        <input type="text" class="form-control" id="nome">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Seu e-mail</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="experiencia" class="form-label">Fale um pouco sobre a experiência</label>
+                        <textarea class="form-control" id="experiencia"></textarea>
+                    </div>
+                    <div class=" mb-3">
+                        <label class="form-label">Melhor(es) parte(s) do curso foi:</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="curso3" value="html">
+                            <label class="form-check-label" for="curso3">HTML</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="curso3" value="css">
+                            <label class="form-check-label" for="curso3">CSS</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="curso3" value="js">
+                            <label class="form-check-label" for="curso3">JavaScript</label>
+                        </div>
+                    </div>
+                    <div class=" mb-3">
+                        <label class="form-label">Você indicaria o curso para amigos?</label> <br>
+                        <input class="form-check-input" type="radio" value="" id="indico">
+                        <label class="form-check-label" for="indico">
+                            Sim, indicaria o curso
+                        </label>
+                    </div>
+
+                    <div class=" d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-primary" type="button">Enviar avaliação</button>
+                    </div>
+                </form>
+            </div>
+
+        </section>
+
+        <section class="row mt-5" id="avaliacoes">
+            <h3>Melhores partes pelos alunos</h3>
+            <div class="col-6">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Votou em</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>João Carlos</td>
+                            <td>CSS, HTML</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Maria Rafaela</td>
+                            <td>JavaScript</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Maria Julia</td>
+                            <td>HTML</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-6">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Votou em</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>João Felipe</td>
+                            <td>HTML</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td>Maria Andreia</td>
+                            <td>JavaScript, CSS</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">6</th>
+                            <td>Joaquina</td>
+                            <td>HTML</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="pt-5 mb-5 text-center text-small bg-white shadow-sm">
+        © Copyrigth 2021
+    </footer>
+
+
+    <script>
+        $(document).ready(function () {
+            $("#toast").toast('show');
+        });
+    </script>
+</body>
+
+</html>
