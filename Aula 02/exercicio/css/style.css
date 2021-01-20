@@ -45,7 +45,7 @@ img {
 .container-paralax {
   color: #fff;
   width: 100%;
-  height: 50vh;
+  height: 100%;
   display: flex;
   background-attachment: fixed;
   background-position: center;
