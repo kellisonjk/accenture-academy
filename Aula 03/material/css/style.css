@@ -1,0 +1,245 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;0,700;1,100;1,300;1,500&display=swap");
+
+html {
+  scroll-behavior: smooth;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+
+p {
+  font-weight: 300;
+}
+
+footer {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.container-paralax {
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.content-paralax--data {
+  color: #fff;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content-paralax--data-text {
+  padding: 20px;
+  border-radius: 15px;
+
+  -webkit-box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.41);
+  -moz-box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.41);
+  box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.41);
+}
+
+.bg-img--version-1 {
+  background-image: url("https://i.redd.it/tfqiq1aqjx351.png");
+}
+.bg-img--version-2 {
+  background-image: url("https://i1.wp.com/www.selectgame.com.br/wp-content/uploads/2019/10/Hashiras-de-Kimetsu-no-Yaiba-Wallpaper-Full-HD-Demon-Slayer.jpg?ssl=1");
+}
+.bg-img--version-3 {
+  background-image: url("https://wallpapercave.com/wp/wp2638543.jpg");
+}
+
+.container-header {
+  text-align: center;
+}
+
+.content-flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex: 1;
+  justify-content: center;
+  margin: 5px;
+  width: 33%;
+}
+
+.content-default {
+  padding: 20px;
+}
+
+.content-flexgrid {
+  display: grid;
+}
+
+.content-flex--direction {
+  flex-direction: row;
+}
+
+.content-flex-reverse {
+  flex-direction: row-reverse;
+}
+
+.content-space--default {
+  padding: 20px;
+  margin: 2px;
+  border-radius: 5px;
+}
+
+.content-justify {
+  justify-content: center;
+}
+
+.content-justify--center {
+  justify-content: center;
+}
+
+.content-justify--bt {
+  justify-content: space-around;
+}
+
+.content-align {
+  align-items: flex-start;
+}
+
+.content-left--main {
+  background-color: #9000c5;
+  left: 0;
+  top: 30%;
+  width: 80px;
+  height: 250px;
+  position: fixed;
+  text-align: center;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  z-index: 3;
+
+  -webkit-box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.41);
+  -moz-box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.41);
+  box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.41);
+}
+
+i {
+  font-size: 25px;
+  color: #fff;
+  padding: 10px;
+}
+
+.nota-informativa {
+  padding: 5px;
+  background-color: white;
+  color: #9000c5;
+}
+
+.content-top--button {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  background-color: #fb80ca;
+  border-radius: 100px;
+  padding: 5px;
+  width: 45px;
+  height: 45px;
+  transition: 1s;
+  display: flex;
+  justify-content: center;
+}
+
+.content-top--button:hover {
+  background-color: #9000c5;
+  transition: 1s;
+}
+
+/*Flex item*/
+.flex-item--1 {
+  flex: 1;
+  margin: 5px;
+}
+.flex-item--2 {
+  flex: 2;
+  margin: 5px;
+}
+.flex-item--3 {
+  flex: 3;
+  margin: 5px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bg-color--purple {
+  background-color: #9000c5;
+  color: #fff;
+}
+
+.bg-color--yellow {
+  background-color: #ffff00;
+  color: #9000c5;
+}
+
+.bg-color--pink {
+  background-color: #fb80ca;
+  color: #fff;
+}
+
+.bg-color--blue {
+  background-color: #085eff;
+  color: #fff;
+}
+
+@media only screen and (max-width: 480px) {
+  .content-flex {
+    display: flow-root;
+  }
+
+  .flex-wrap {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .bg-color--blue {
+    background-color: rgb(28 52 113);
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .container {
+    max-width: 70%;
+  }
+
+  .bg-color--purple {
+    background-color: #630d40;
+  }
+}
