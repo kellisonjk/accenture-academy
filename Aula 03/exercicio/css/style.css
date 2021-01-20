@@ -248,7 +248,8 @@ footer {
 }
 
 @media only screen and (min-width: 481px) {
-  #shonen {
+  #shonen,
+  #ini {
     flex-direction: column;
   }
 
