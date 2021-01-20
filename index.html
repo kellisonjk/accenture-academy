@@ -22,8 +22,9 @@
         }
 
         .link-aula {
-            transition: 0.3s;
+            transition: 0.5s;
             border-width: 2px;
+            margin: 5px;
         }
 
         .link-aula:hover {
@@ -31,6 +32,10 @@
             background-color: #037ffc;
             color: white;
             font-weight: 600;
+        }
+
+        .link-aula:hover a {
+            color: #fff
         }
 
         a {
@@ -50,9 +55,16 @@
 
     <div class="container">
         <div class="row">
-            <a href="Aula 01/index.html">
-                <div class="col-md-3 p-3 card text-center link-aula">Aula 01 - Dia 18/01</div>
-            </a>
+            <div class="col-md-3 p-3 card text-center link-aula">
+                <a href="Aula 01/index.html">
+                    Aula 01 - Bootstrap
+                </a>
+            </div>
+            <div class="col-md-3 p-3 card text-center link-aula">
+                <a href="Aula 02/material/index.html">
+                    Aula 02 - CSS
+                </a>
+            </div>
         </div>
     </div>
 
