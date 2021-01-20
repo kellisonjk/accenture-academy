@@ -131,6 +131,7 @@ img {
 
 .texto-justificado {
   text-align: justify;
+  padding: 10px;
 }
 
 .content-right {
