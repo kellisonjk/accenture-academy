@@ -33,6 +33,10 @@ i {
   padding: 10px;
 }
 
+img {
+  max-width: 100%;
+}
+
 .container {
   max-width: 90%;
   margin: 0 auto;
@@ -106,6 +110,7 @@ i {
 .content-flex--drow {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 .content-flex--dcol {
   display: flex;
