@@ -90,7 +90,7 @@
                     <img src="${urlPicture}" class="card-img-top" alt="Foto de perfil">
                     <div class="card-body">
                         <h5 class="card-title">${name}</h5>
-                        <p class="card-text">${job}, ${age} anos de idade.</p>
+                        <p class="card-text">${job}, ${age ? age : '--'} ano${age == 1 ? '' : 's'} de idade.</p>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">${address}</li>
@@ -102,7 +102,27 @@
                     </div>
                 </div>`;
 
-            app.innerHTML = welcome;
+
+            const loading = `
+            <div class="container d-flex align-items-center justify-content-center" style="width: 100vh;">
+                <div class="spinner-grow text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <div class="spinner-grow text-secondary" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <div class="spinner-grow text-success" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>    
+            </div>`
+
+            app.innerHTML = loading;
+
+            setTimeout(() => {
+                app.innerHTML = welcome;
+            }, 3000);
+
+
         }
 
     </script>
