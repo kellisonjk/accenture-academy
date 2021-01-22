@@ -91,7 +91,7 @@ axios.get(baseURL + 'categories').then(
         
 
         let menu = [(`<li class="nav-item">
-                        <a class="nav-link  active" onclick="showActiveLinkItem(event); getRandomJoke();">+Aleatória</a>
+                        <a class="nav-link  active" onclick="showActiveLinkItem(event); getRandomJoke();">+Random</a>
                     </li>`)];
 
         menu.push(allCategories.slice(0, 7).map(label => 
