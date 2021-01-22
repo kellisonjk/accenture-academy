@@ -30,7 +30,7 @@
 
 <body>
     <div id='app' class="align-items-center justify-content-center m-5"></div>
-    <div id='loadingResults' class="align-items-center justify-content-center m-5"></div>
+    <div id='loadingResults' class="row align-items-center justify-content-center m-5"></div>
     <div id='results' class="align-items-center justify-content-center m-5"></div>
 
     <script>
@@ -92,7 +92,7 @@
             const urlPicture = document.querySelector("#picture").value;
 
             const welcome = (message, name, age, job, address, city, uf, urlPicture) => `
-                <div class="container d-flex justify-content-center">
+                <div class="container card col-md-3 justify-content-center">
                     <div class="card" style="width: 18rem;">
                     <div class="card-header">
                     ${message}
