@@ -97,7 +97,7 @@ axios.get(baseURL + 'categories').then(
         menu.push(allCategories.slice(0, 7).map(label => 
                     (`<li class="nav-item">
                         <a class="nav-link" onclick="searchByLink(event, '${label}')">${label}</a>
-                    </li>`)));
+                    </li>`)).join(''));
 
         if(allCategories.length > 7){
             let dropdownItens = allCategories.slice(6, allCategories.length).map(label => 
@@ -116,6 +116,8 @@ axios.get(baseURL + 'categories').then(
             menu.push(dropdown);
         }
         
+console.log(menu);
+
         mainMenu.innerHTML = menu.join('');
             
     }
