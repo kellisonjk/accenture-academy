@@ -71,7 +71,7 @@ const showActiveLinkItem = (event) => {
         e.classList.remove('active');
     });
 
-    if(event)
+    if(event !== null)
         event.target.className="nav-link active";
 }
 
