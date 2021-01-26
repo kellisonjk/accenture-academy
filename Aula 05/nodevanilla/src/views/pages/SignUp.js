@@ -1,4 +1,5 @@
 import baseURL from '../../service/baseURL.js';
+import logoSimples from '../../images/logo-gama-simples.png'
 
 window.postRegisterNewUser = async () => {
     const options = {
@@ -38,13 +39,12 @@ let SignUp = {
         let view = `
         <div class="row justify-content-center align-items-center flex-wrap">
             <div class="col-md-5 d-flex flex-column align-items-center">
-                <img src="https://jobs.gama.academy/assets/logo-horizontal-56fdf595cd4297fde69d61d5e08e0d40bbae324401df82d2fbfa39250b8c7993.png"
+                <img src="${logoSimples}"
                     alt="logo" class="logo">
             </div>
             <div class="col-md-4">
                 <div class="card shadow rounded p-3">
                     <div class="card-body">
-                    <form>
                             <div class="mb-3">
                                 <label for="login" class="form-label">Login</label>
                                 <input type="text" class="form-control" id="login">
@@ -59,19 +59,17 @@ let SignUp = {
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Senha</label>
-                                <input type="password" class="form-control" id="password">
+                                <input type="password" class="form-control" id="password" minlenght="6">
                             </div>
                             <div class="mb-3">
                                 <label for="confirm-password" class="form-label">Confirme a senha</label>
-                                <input type="password" class="form-control" id="confirm-password">
+                                <input type="password" class="form-control" id="confirm-password" minlenght="6">
                             </div>
 
                             <div class="mb-3 d-flex justify-content-between pt-3">
                                 <button class="btn btn-danger" id="cancel">Cancelar</button>
                                 <button class="btn btn-primary" id="submit-form">Salvar cadastro</button>
                             </div>
-                    </form>
-
                     </div>
                 </div>
             </div>
@@ -91,34 +89,31 @@ let SignUp = {
             let cpf = document.getElementById('cpf').value
             let login = document.getElementById('login').value
             
-            if(password === confirmPassword){
+            if(password.length >= 6 && password === confirmPassword){
                 console.log('Validação concluída');
 
                 axios
-                    .post(`${baseURL}usuarios`, {
-                        cpf, login, nome: name, senha: password
-                    }, {
-                        headers: {
-                            'Content-type': 'application/json'
+                    .post(`${baseURL}usuarios`, 
+                        {
+                            cpf, login, nome: name, senha: password
+                        }, 
+                        {
+                            headers: {
+                                'Content-type': 'application/json'
+                            }
                         }
-                    })
+                    )
                     .then(
                         res =>{
 
                             if ( res.status === 200 ){
                                 window.location.replace('#/login')
                             }
-
-                            /*console.log(res.data);
-                            
-                            localStorage.setItem('@token', res.data.token)
-                            sessionStorage.setItem('@token', res.data.token)
-                            Cookies.set('@token',res.data.token, {expires: 1})*/
                         }
                     )
             }
             else{
-                alert('Senhas não conferem, verifique se digitou corretamente.');
+                alert('Senha com tamanho insuficiente (mín. 6 caracteres) ou não confere com a confirmação, verifique se digitou corretamente.');
             }
         });
     }

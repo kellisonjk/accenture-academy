@@ -1,3 +1,6 @@
+// CSS
+import css from "../src/css/styles.css";
+
 // Default components
 import Footer from './views/components/Footer.js'
 import Nav from './views/components/Nav.js';

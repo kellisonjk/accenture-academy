@@ -1,12 +1,13 @@
 import baseURL from '../../service/baseURL.js';
-
+import logo from '../../images/logo-gama.png'
+                                     
 const form_onchange = () =>{
         let password = document.getElementById('password').value;
         let login = document.getElementById('login').value;
 
         document.getElementById('error-login').innerHTML = '';
 
-        if(password.length < 4 || login.length < 4){
+        if(password.length < 6 || login.length < 4){
             document.getElementById('enter-account').setAttribute("disabled","disabled");
             document.getElementById('enter-account').classList.replace("btn-primary", "btn-secondary");
         } else {
@@ -22,13 +23,12 @@ let Home = {
         <div class="container h-100 d-flex justify-content-center align-items-center" style="padding-top: 15vh">
         <div class="row justify-content-center align-items-center">
             <div class="col-md-5 d-flex flex-column align-items-center">
-                <img src="https://jobs.gama.academy/assets/logo-horizontal-56fdf595cd4297fde69d61d5e08e0d40bbae324401df82d2fbfa39250b8c7993.png"
+                <img src="${logo}"
                     alt="logo" class="logo">
             </div>
             <div class="col-md-4">
                 <div class="card shadow rounded p-3">
                     <div class="card-body">
-                    <form id="form-login">
                             <div class="mb-3">
                                 <label for="login" class="form-label">Usuário</label>
                                 <input type="teste" class="form-control" id="login" minlength="4">
@@ -36,7 +36,7 @@ let Home = {
                             </div>
                                 <label for="password" class="form-label">Senha</label>
                             <div class="mb-3 input-group">
-                                <input type="password" class="form-control" id="password" minlength="4">
+                                <input type="password" class="form-control" id="password" minlength="6">
                                 <div class="input-group-text" id="passwordVisibility"><i class="fas fa-eye"></i></i></div>
                             </div>
                             <div class="mb-3 text-center" id="error-login">
@@ -49,7 +49,6 @@ let Home = {
                             <div class="mb-3 text-center mt-4">
                                 <a href="/#/signup">Não tem cadastro? Clique aqui.</a>
                             </div>
-                    <form>
                     </div>
                 </div>
             </div>
@@ -88,7 +87,7 @@ let Home = {
             let password = document.getElementById('password').value
             let login = document.getElementById('login').value
             
-            if(login.length >= 4 && password.length >= 4){
+            if(login.length >= 4 && password.length >= 6){
                 console.log('Validação concluída');
 
                 axios
@@ -110,7 +109,7 @@ let Home = {
                             
                         }
                     ).catch(err => {
-                        document.getElementById('error-login').innerHTML = "Usuário ou senha não encontrados"
+                        document.getElementById('error-login').innerHTML = err.response.data.error
                     })
             }
             else{
