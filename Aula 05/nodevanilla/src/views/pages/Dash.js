@@ -4,23 +4,24 @@ let Dash = {
     render: async () => {
         await Utils.isAuthenticated();
         let userData = JSON.parse(localStorage.getItem('@userDataAccount'));
-        console.log(userData)
+        
         let {usuario: user, conta} = userData;
         let firstName = user.nome.split(' ')[0];
+        let balance = conta.saldo.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+
         let view = `
         <div class="container">
-            <div class="row">
-                
-                <div class="col card text-dark bg-warning mb-3">
+            <div class="d-flex justify-content-center">                
+                <div class="card text-dark bg-warning mb-3">
                     <div class="card-header">ATENÇÃO</div>
                     <div class="card-body">
-                        <p class="card-text"><strong class="username">${firstName}</strong>, você possui  exercícios próximos da deadline!</p>
+                        <p class="card-text"><strong class="username">${firstName}</strong>, você atualmente possui um saldo de <strong>${balance}</strong>.</p>
                     </div>
                 </div>
             </div>
 
             <div class="row justify-content-between align-items-center flex-wrap">
-                <div class="d-flex justify-content-center">
+                <div class="col-md-4 d-flex justify-content-center">
                     <div class="card" style="width: 18rem;">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3iHW9F8U24tel7OWvX4YKDzZH1n8Kt42Zsw&usqp=CAU"
                             class="card-img-top img-dash">
@@ -32,7 +33,7 @@ let Dash = {
                         </div>
                     </div>
                 </div>
-                <div class="d-flex mt-2 justify-content-center">
+                <div class="col-md-4 d-flex mt-2 justify-content-center">
                     <div class="card" style="width: 18rem;">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIDmu608ZZN0qZpKeJPh9mBUml69d1-lsGcA&usqp=CAU"
                             class="card-img-top  img-dash">
@@ -44,7 +45,7 @@ let Dash = {
                         </div>
                     </div>
                 </div>
-                <div class="d-flex mt-2 justify-content-center">
+                <div class="col-md-4 d-flex mt-2 justify-content-center">
                     <div class="card" style="width: 18rem;">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png"
                             class="card-img-top  img-dash">

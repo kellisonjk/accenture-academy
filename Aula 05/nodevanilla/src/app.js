@@ -15,10 +15,10 @@ import Utils from './service/Utils.js';
 // Lista de rotas com suporte. Qualquer URL diferente dessas rotas gerará um erro 404
 // customizando o carregamento da rota adicioando o atributo 'type'
 let routes = {
-    '/': {route: Home, type: ''},
-    '/signup': {route: SignUp, type: 'full'},
-    '/login': {route: Login, type: 'full'},
-    '/dashboard': {route: Dash, type: ''}
+    '/': {route: Home, fullPage: false},
+    '/signup': {route: SignUp, tfullPageype: false},
+    '/login': {route: Login, fullPage: true},
+    '/dashboard': {route: Dash, fullPage: false}
 }
 
 
@@ -26,6 +26,7 @@ let routes = {
 const router = async () => {
 
     // Elemento de visualização de carregamento Lazy Load:
+    const app = null || document.getElementById('app');
     const header = null || document.getElementById('header');
     const content = null || document.getElementById('container');
     const footer = null || document.getElementById('footer');
@@ -36,7 +37,7 @@ const router = async () => {
     // Analise o URL e se ele tiver uma parte de id, altere-o com a string ": id"
     let parsedURL = (request.resource ? '/' + request.resource : '/') + (request.id ? '/:id' : '') + (request.verb ? '/' + request.verb : '')
     
-    if(routes[parsedURL] && routes[parsedURL].type !== 'full'){
+    if(routes[parsedURL] && !routes[parsedURL].fullPage){
         // Renderizar o cabeçalho e rodapé da página
         header.innerHTML = await Nav.render();
         await Nav.after_render();

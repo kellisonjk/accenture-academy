@@ -1,11 +1,5 @@
 let Nav = {
     render: async () => {
-
-        // "Botão sair" a ser adicionado ao menu caso o usuário esteja logado
-        let buttonLogout = localStorage.getItem('@token') ? `
-                        <li class="nav-item">
-                            <a class="nav-link" id="logout">Sair</a>
-                        </li>` : '';
   
         let view = `
             <nav class="container navbar navbar-expand-lg navbar-light bg-light p-3 mb-4">
@@ -19,19 +13,15 @@ let Nav = {
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
+                       ${localStorage.getItem('@token') ? `<li class="nav-item">
                             <a class="nav-link" href="/#/">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/#/dashboard">Dashboard</a>
                         </li>
-                        <!--li class="nav-item">
-                            <a class="nav-link" href="/#/signup">Cadastrar</a>
-                        </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/#/Login">Login</a>
-                        </li-->
-                        ${buttonLogout}
+                            <a class="nav-link" id="logout">Sair</a>
+                        </li>` : ``}
                     </ul>
                     </div>
                 </div>

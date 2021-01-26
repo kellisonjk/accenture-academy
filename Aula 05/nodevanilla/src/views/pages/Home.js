@@ -3,14 +3,19 @@ import Utils from "../../service/utils.js";
 let Home = {
     render : async () => {
         await Utils.isAuthenticated();
+        let userData = JSON.parse(localStorage.getItem('@userDataAccount'));
+        
+        let {usuario: user, conta} = userData;
+        let firstName = user.nome.split(' ')[0];
+        let balance = conta.saldo.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
 
         let view = `
-            <div class="container" style="min-height: 60vh">
+            <div class="container" class="d-flex align-items-center">
                 <div class="row  justify-content-center align-items-center flex-wrap">
                     <div class="col-md-5">
-                        <h3>Painel de estudos</h3>
+                        <h3 class="mb-5">Painel de estudos</h3>
                         <p>
-                            Olá, você realizou login no sistema de ensino da Gama Academy.
+                            Olá <strong class="username">${firstName}</strong>, você realizou login no sistema de ensino da Gama Academy.
                         </p>
                         <p>
                             Agora você pode acessar o seu dashbaord e verificar seus eercícios e avaliações
