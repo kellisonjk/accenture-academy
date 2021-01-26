@@ -1,39 +1,63 @@
-const content = null || document.getElementById('container')
-const footer = null || document.getElementById('footer')
-const classesFooter = ["content-footer", "d-flex", "justify-content-center", "align-content-center"];
+// Default components
+import Footer from './views/components/Footer.js'
+import Nav from './views/components/Nav.js';
 
-footer.innerHTML = `<p style="margin: 0" class="align-self-center">&copy; Todos os direitos reservados</p>`;
-footer.classList.add(...classesFooter);
+// Components
+import Home from './views/pages/Home.js';
+import Dash from './views/pages/Dash.js';
+import Login from './views/pages/Login.js';
+import SignUp from './views/pages/SignUp.js';
+import Error404 from './views/pages/Error404.js';
 
-content.innerHTML = `
-<div class="row justify-content-center align-items-center flex-wrap">
-            <div class="col-md-5 d-flex align-items-center">
-                <img src="https://lh3.googleusercontent.com/proxy/MGxg-HKn2OieHK054-pgMrTrEfHibsyddUxWhUdCmgBSQUMDAhDQuz9zAiSGTK72gGIKcAOZUlawF0-62IHpTtJICrH89dQNCai2NVJndTEmgIwbAnERb9UYQB91QmAQcCTOsOGUpg"
-                    alt="logo" class="logo">
-            </div>
-            <div class="col-md-4">
-                <div class="card shadow rounded">
-                    <div class="card-body">
-                        <h4 class="card-title text-center mb-5">Painel de estudos</h4>
-                        <form>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+// Utils
+import Utils from './service/Utils.js';
 
-                            </div>
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Senha</label>
-                                <input type="password" class="form-control" id="password">
-                            </div>
-
-                            <div class="mb-3 d-flex justify-content-center">
-                                <button type="submit" class="btn btn-primary">Entrar</button>
-                            </div>
+// Lista de rotas com suporte. Qualquer URL diferente dessas rotas gerará um erro 404
+// customizando o carregamento da rota adicioando o atributo 'type'
+let routes = {
+    '/': {route: Home, type: ''},
+    '/signup': {route: SignUp, type: 'full'},
+    '/login': {route: Login, type: 'full'},
+    '/dashboard': {route: Dash, type: ''}
+}
 
 
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-`
+// O código do roteador. Pega um URL, verifica a lista de rotas com suporte e, em seguida, renderiza a página de conteúdo correspondente.
+const router = async () => {
+
+    // Elemento de visualização de carregamento Lazy Load:
+    const header = null || document.getElementById('header');
+    const content = null || document.getElementById('container');
+    const footer = null || document.getElementById('footer');
+
+    // Obtenha o URl do navegador
+    let request = Utils.parseRequestURL()
+
+    // Analise o URL e se ele tiver uma parte de id, altere-o com a string ": id"
+    let parsedURL = (request.resource ? '/' + request.resource : '/') + (request.id ? '/:id' : '') + (request.verb ? '/' + request.verb : '')
+    
+    if(routes[parsedURL] && routes[parsedURL].type !== 'full'){
+        // Renderizar o cabeçalho e rodapé da página
+        header.innerHTML = await Nav.render();
+        await Nav.after_render();
+        footer.innerHTML = await Footer.render();
+        await Footer.after_render();
+    } else{
+        header.innerHTML = '';
+        footer.innerHTML = '';
+    }
+
+
+    // Obtenha a página de nosso hash de rotas com suporte.
+    // Se o URL analisado não estiver em nossa lista de rotas compatíveis, selecione a página 404
+    let page = routes[parsedURL] ? routes[parsedURL].route : Error404
+    content.innerHTML = await page.render();
+    await page.after_render();
+  
+}
+
+// Observa a mudança de hash:
+window.addEventListener('hashchange', router);
+
+// Observa o carregamento da página:
+window.addEventListener('load', router);
