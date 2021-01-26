@@ -25,14 +25,6 @@ const Utils = {
         return new Promise(resolve => setTimeout(resolve, ms));
     },
 
-    // Check if the user is logged on
-    isAuthenticated: async (route = 'login') => {
-        if(!localStorage.getItem('@token')){
-            window.location.replace(`#/${route}`); 
-        }   else{ 
-            console.log("Usuário logado")
-        } 
-    }
 }
 
 export default Utils;

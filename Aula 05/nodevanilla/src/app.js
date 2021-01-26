@@ -26,7 +26,6 @@ let routes = {
 const router = async () => {
 
     // Elemento de visualização de carregamento Lazy Load:
-    const app = null || document.getElementById('app');
     const header = null || document.getElementById('header');
     const content = null || document.getElementById('container');
     const footer = null || document.getElementById('footer');

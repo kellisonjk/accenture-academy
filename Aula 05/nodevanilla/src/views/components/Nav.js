@@ -1,3 +1,5 @@
+import Auth from "../../service/auth.js";
+
 let Nav = {
     render: async () => {
   
@@ -8,12 +10,12 @@ let Nav = {
                         <img class="logo-menu"
                             src="https://assets.website-files.com/5ff79f3ebebf6b12f6b7747f/5ffe04fc6284b7e90070d985_logo-gama-academy.png">
                     </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    ${await Auth.isAuthenticated() ? `<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
-                    </button>
+                    </button>` : ``}
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
-                       ${localStorage.getItem('@token') ? `<li class="nav-item">
+                       ${await Auth.isAuthenticated() ? `<li class="nav-item">
                             <a class="nav-link" href="/#/">Home</a>
                         </li>
                         <li class="nav-item">
