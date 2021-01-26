@@ -6,7 +6,7 @@ let Nav = {
                         <li class="nav-item">
                             <a class="nav-link" id="logout">Sair</a>
                         </li>` : '';
-
+  
         let view = `
             <nav class="container navbar navbar-expand-lg navbar-light bg-light p-3 mb-4">
                 <div class="container-fluid">
