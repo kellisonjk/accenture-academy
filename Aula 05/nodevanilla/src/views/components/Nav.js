@@ -1,9 +1,10 @@
 let Nav = {
     render: async () => {
 
+        // "Botão sair" a ser adicionado ao menu caso o usuário esteja logado
         let buttonLogout = localStorage.getItem('@token') ? `
                         <li class="nav-item">
-                            <a class="nav-link" id="loggout">Sair</a>
+                            <a class="nav-link" id="logout">Sair</a>
                         </li>` : '';
 
         let view = `
@@ -40,10 +41,8 @@ let Nav = {
         return view
     },
     after_render: async () => { 
-        if(document.getElementById('loggout'))
-            document.getElementById('loggout').addEventListener('click', () => {
-                /*localStorage.removeItem('@token');
-                localStorage.removeItem('@userDataAccount');*/
+        if(document.getElementById('logout'))
+            document.getElementById('logout').addEventListener('click', () => {
                 localStorage.clear()
                 window.location.replace('#/login');
             })
