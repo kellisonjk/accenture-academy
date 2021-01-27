@@ -87,7 +87,7 @@ let SignUp = {
             let name = document.getElementById('name').value
             let password = document.getElementById('password').value
             let confirmPassword = document.getElementById('confirm-password').value
-            let cpf = document.getElementById('cpf').value
+            let cpf = document.getElementById('cpf').value.replace(/[^\d]/g, "")
             let login = document.getElementById('login').value
             
             if(password.length >= 6 && password === confirmPassword){

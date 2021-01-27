@@ -8,7 +8,9 @@ const config =  {
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
-    port: 9000,mode: 'development'
+    port: 9000,
+    hotOnly: true,
+    open: true
   },
   output: {
       filename: "bundle.js",
@@ -34,17 +36,17 @@ const config =  {
           test: /\.(png|jpe?g|gif)$/i,
           loader: 'file-loader',
           options: {
-          name: 'assets/[name].[ext]',
+            name: 'assets/[name].[ext]',
           },
       }
       
     ]
   },
-    /*plugins: [
-        new HWP(
-            {template: path.join(__dirname, '/src/index.html')}
-        )
-    ]*/
+  plugins: [
+      new HWP(
+          {template: path.join(__dirname, '/src/index.html')}
+      )
+  ]
 };
 
 module.exports = config;
