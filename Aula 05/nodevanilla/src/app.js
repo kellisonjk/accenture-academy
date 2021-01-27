@@ -11,7 +11,7 @@ import Dash from './views/pages/Dash.js';
 import Login from './views/pages/Login.js';
 import SignUp from './views/pages/SignUp.js';
 import Error404 from './views/pages/Error404.js';
-
+  
 // Utils
 import Utils from './service/utils.js';
 
