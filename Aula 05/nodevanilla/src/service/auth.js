@@ -1,6 +1,6 @@
 
 const Auth = {
-    isAuthenticated: async () => { console.log('ii')
+    isAuthenticated: async () => { 
         return localStorage.getItem('@token')
     },
     securePage: async () => {

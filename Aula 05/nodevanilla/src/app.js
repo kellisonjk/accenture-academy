@@ -1,9 +1,11 @@
 // CSS
-import css from "../src/css/styles.css";
+//import css from "../src/css/styles.css";
+//import css from "../src/css/loading.css";
 
 // Default components
 import Footer from './views/components/Footer.js'
 import Nav from './views/components/Nav.js';
+import Loading from './views/components/Loading.js';
 
 // Components
 import Home from './views/pages/Home.js';
@@ -32,6 +34,7 @@ const router = async () => {
     const header = null || document.getElementById('header');
     const content = null || document.getElementById('container');
     const footer = null || document.getElementById('footer');
+    
 
     // Obtenha o URl do navegador
     let request = Utils.parseRequestURL()
@@ -43,6 +46,9 @@ const router = async () => {
         // Renderizar o cabeçalho e rodapé da página
         header.innerHTML = await Nav.render();
         await Nav.after_render();
+        
+        content.innerHTML = await Loading.render();
+
         footer.innerHTML = await Footer.render();
         await Footer.after_render();
     } else{

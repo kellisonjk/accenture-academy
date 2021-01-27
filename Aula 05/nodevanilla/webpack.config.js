@@ -3,7 +3,7 @@ const path = require('path');
 
 const HWP = require('html-webpack-plugin');
 
-const config = {
+const config =  {
   entry: ['@babel/polyfill', './src/app.js'],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
