@@ -2,7 +2,9 @@ import Auth from "../../service/auth.js";
 
 let Nav = {
     render: async () => {
-  
+        const userData = JSON.parse(localStorage.getItem('@userDataAccount'));
+
+        let firstName = userData ? userData.usuario.nome.split(' ')[0] : '<vazio>' ;
         let view = `
             <nav class="container navbar navbar-expand-lg navbar-light bg-light p-3 mb-4">
                 <div class="container-fluid">
@@ -15,15 +17,21 @@ let Nav = {
                         <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                        <ul class="navbar-nav">
+                        <ul class="navbar-nav ">
                             <li class="nav-item">
-                                <a class="nav-link" href="/#/">Home</a>
+                                <a class="nav-link fw-bold" href="/#/">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/#/dashboard">Dashboard</a>
+                                <a class="nav-link fw-bold" href="/#/dashboard">Dashboard</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="logout">Sair</a>
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Olá, ${firstName}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">Alterar senha</a></li>
+                                <li><a class="dropdown-item" id="logout">Sair</a></li>
+                            </ul>
                             </li>
                         </ul>` : 
                         ``}

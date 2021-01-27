@@ -19,7 +19,7 @@ import Utils from './service/utils.js';
 // customizando o carregamento da rota adicioando o atributo 'type'
 let routes = {
     '/': {route: Home, fullPage: false},
-    '/signup': {route: SignUp, tfullPageype: false},
+    '/signup': {route: SignUp, fullPage: true},
     '/login': {route: Login, fullPage: true},
     '/dashboard': {route: Dash, fullPage: false}
 }

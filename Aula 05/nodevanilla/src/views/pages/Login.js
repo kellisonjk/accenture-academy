@@ -20,39 +20,38 @@ let Home = {
 
     render : async () => {
         let view = `
-        <div class="container h-100 d-flex justify-content-center align-items-center" style="padding-top: 15vh">
-        <div class="row justify-content-center align-items-center">
-            <div class="col-md-5 d-flex flex-column align-items-center">
-                <img src="https://jobs.gama.academy/assets/logo-horizontal-56fdf595cd4297fde69d61d5e08e0d40bbae324401df82d2fbfa39250b8c7993.png"
-                    alt="logo" class="logo">
-            </div>
-            <div class="col-md-4">
-                <div class="card shadow rounded p-3">
-                    <div class="card-body">
-                            <div class="mb-3">
-                                <label for="login" class="form-label">Usuário</label>
-                                <input type="teste" class="form-control" id="login" minlength="4">
+        <div style="padding-top: 15vh">
+            <div class="container card shadow rounded login-view">
+                <div class="row">
+                    <div class="col-md p-3 d-flex flex-column justify-content-center align-content-center logo">
+                        <img src="https://jobs.gama.academy/assets/logo-horizontal-56fdf595cd4297fde69d61d5e08e0d40bbae324401df82d2fbfa39250b8c7993.png"
+                            alt="logo">
+                    </div>
+                    <div class="col-md p-3">
+                        <div class="mb-3">
+                            <label for="login" class="form-label">Usuário</label>
+                            <input type="teste" class="form-control" id="login" minlength="4">
 
-                            </div>
-                                <label for="password" class="form-label">Senha</label>
-                            <div class="mb-3 input-group">
-                                <input type="password" class="form-control" id="password" minlength="6">
-                                <div class="input-group-text" id="passwordVisibility"><i class="fas fa-eye"></i></i></div>
-                            </div>
-                            <div class="mb-3 text-center" id="error-login">
-                            </div>
+                        </div>
+                        <label for="password" class="form-label">Senha</label>
+                        <div class="mb-3 input-group">
+                            <input type="password" class="form-control" id="password" minlength="6">
+                            <div class="input-group-text" id="passwordVisibility"><i class="fas fa-eye"></i></i></div>
+                        </div>
+                        <div class="mb-3 text-center" id="error-login">
+                        </div>
 
-                            <div class="mb-3 d-flex justify-content-center">
-                                <button class="btn btn-secondary" id="enter-account" disabled>Entrar</button>
-                            </div>
+                        <div class="mb-3 d-flex justify-content-center">
+                            <button class="btn btn-secondary" id="enter-account" disabled>Entrar</button>
+                        </div>
 
-                            <div class="mb-3 text-center mt-4">
-                                <a href="/#/signup">Não tem cadastro? Clique aqui.</a>
-                            </div>
+                        <div class="mb-3 mt-4 links-login">
+                            <div>Não tem cadastro? <a href="/#/signup">Cadastre-se.</a></div>
+                            <div>Esqueci sua senha? <a href="#">Vamos recuperá-la.</a></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
 
         `

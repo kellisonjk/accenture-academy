@@ -26,7 +26,7 @@ let Home = {
                         </div>
                         <div class="col-md-5">
                             <img src="https://jobs.gama.academy/assets/logo-horizontal-56fdf595cd4297fde69d61d5e08e0d40bbae324401df82d2fbfa39250b8c7993.png"
-                                alt="logo" class="logo">
+                                alt="logo" class="logo-home">
                         </div>
                     </div>
                 </div>

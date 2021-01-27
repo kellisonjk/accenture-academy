@@ -37,42 +37,43 @@ let SignUp = {
     render : async () => {        
 
         let view = `
-        <div class="row justify-content-center align-items-center flex-wrap">
-            <div class="col-md-5 d-flex flex-column align-items-center">
-                <img src="https://jobs.gama.academy/assets/logo-horizontal-56fdf595cd4297fde69d61d5e08e0d40bbae324401df82d2fbfa39250b8c7993.png"
-                    alt="logo" class="logo">
-            </div>
-            <div class="col-md-4">
-                <div class="card shadow rounded p-3">
-                    <div class="card-body">
-                            <div class="mb-3">
-                                <label for="login" class="form-label">Login</label>
-                                <input type="text" class="form-control" id="login">
-                            </div>
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Nome</label>
-                                <input type="text" class="form-control" id="name">
-                            </div>
-                            <div class="mb-3">
-                                <label for="cpf" class="form-label">CPF</label>
-                                <input type="text" class="form-control" id="cpf">
-                            </div>
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Senha</label>
-                                <input type="password" class="form-control" id="password" minlenght="6">
-                            </div>
-                            <div class="mb-3">
-                                <label for="confirm-password" class="form-label">Confirme a senha</label>
-                                <input type="password" class="form-control" id="confirm-password" minlenght="6">
-                            </div>
+        
+        <div style="padding-top: 5vh">
+        <div class="container card shadow rounded login-view">
+            <div class="row">
+                <div class="col-md p-3 d-flex flex-column justify-content-center align-content-center logo">
+                    <img src="https://jobs.gama.academy/assets/logo-horizontal-56fdf595cd4297fde69d61d5e08e0d40bbae324401df82d2fbfa39250b8c7993.png"
+                        alt="logo">
+                </div>
+                <div class="col-md p-3">
+                    <div class="mb-3">
+                        <label for="login" class="form-label">Login</label>
+                        <input type="text" class="form-control" id="login">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="cpf" class="form-label">CPF</label>
+                        <input type="text" class="form-control" id="cpf">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="password" minlenght="6">
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirm-password" class="form-label">Confirme a senha</label>
+                        <input type="password" class="form-control" id="confirm-password" minlenght="6">
+                    </div>
 
-                            <div class="mb-3 d-flex justify-content-between pt-3">
-                                <button class="btn btn-danger" id="cancel">Cancelar</button>
-                                <button class="btn btn-primary" id="submit-form">Salvar cadastro</button>
-                            </div>
+                    <div class="mb-3 d-flex justify-content-between pt-3">
+                        <button class="btn btn-danger" id="cancel">Cancelar</button>
+                        <button class="btn btn-primary" id="submit-form">Salvar cadastro</button>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         `
 
