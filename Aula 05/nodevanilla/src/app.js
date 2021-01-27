@@ -1,6 +1,6 @@
 // CSS
-import css from "../src/css/styles.css";
-import css from "../src/css/loading.css";
+import cssStyles from "../src/css/styles.css";
+import cssLoading from "../src/css/loading.css";
 
 // Default components
 import Footer from './views/components/Footer.js'
