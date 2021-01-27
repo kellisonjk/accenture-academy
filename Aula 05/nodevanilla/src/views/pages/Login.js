@@ -47,7 +47,7 @@ let Home = {
 
                         <div class="mb-3 mt-4 links-login">
                             <div>Não tem cadastro? <a href="/#/signup">Cadastre-se.</a></div>
-                            <div>Esqueci sua senha? <a href="#">Vamos recuperá-la.</a></div>
+                            <div>Esqueceu sua senha? <a href="#">Vamos recuperá-la.</a></div>
                         </div>
                     </div>
                 </div>
