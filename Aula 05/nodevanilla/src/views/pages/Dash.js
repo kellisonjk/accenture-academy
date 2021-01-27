@@ -7,10 +7,10 @@ let requestDataAccount = async () => {
     let dataAccount = null
     if(userData){
 
-        let {usuario: {login}, token} = userData;
+        let {usuario, token} = userData;
         
         await axios
-            .get(`${baseURL}lancamentos/planos-conta?login=${login}`,  {
+            .get(`${baseURL}lancamentos/planos-conta?login=${usuario.login}`,  {
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": token
