@@ -16,12 +16,12 @@ let Home = {
                 <div class="container" class="d-flex align-items-center">
                     <div class="row  justify-content-center align-items-center flex-wrap">
                         <div class="col-md-5">
-                            <h3 class="mb-5">Painel de estudos</h3>
+                            <h3 class="mb-5"></h3>
                             <p>
-                                Olá <strong class="username">${firstName}</strong>, você realizou login no sistema de ensino da Gama Academy.
+                                Olá <strong class="username">${firstName}</strong>, seja bem vindo.
                             </p>
                             <p>
-                                Agora você pode acessar o seu dashbaord e verificar seus eercícios e avaliações
+                                Agora você pode acessar o seu dashbaord e verificar as transações e saldo da sua conta.
                             </p>
                         </div>
                         <div class="col-md-5">

@@ -83,11 +83,11 @@ let Dash = {
                     </div>
                 </div>   
 
-                <div class="container d-flex justify-content-center align-items-center">
+                <div class="container d-flex justify-content-between align-items-center flex-wrap">
                     ${
                         dataAccount.map(data => {
                             return `
-                            <div class="col-6 ">
+                            <div class="col-5 mt-2">
                                 <div class="card">
                                     <div class="card-header">${data.descricao}</div>
                                     <div class="card-body">
@@ -97,7 +97,7 @@ let Dash = {
                                 </div>
                             </div>
                             `
-                        })
+                        }).join('')
 
                     }
                 </div>
