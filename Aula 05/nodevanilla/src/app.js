@@ -13,7 +13,7 @@ import SignUp from './views/pages/SignUp.js';
 import Error404 from './views/pages/Error404.js';
 
 // Utils
-import Utils from './service/Utils.js';
+import Utils from './service/utils.js';
 
 // Lista de rotas com suporte. Qualquer URL diferente dessas rotas gerará um erro 404
 // customizando o carregamento da rota adicioando o atributo 'type'
