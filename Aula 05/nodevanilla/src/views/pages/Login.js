@@ -1,6 +1,6 @@
 import baseURL from '../../service/baseURL.js';
-import logo from '../../images/logo-gama.png'
-                                     
+//import logo from '../../images/logo-gama.png'
+
 const form_onchange = () =>{
         let password = document.getElementById('password').value;
         let login = document.getElementById('login').value;
@@ -23,7 +23,7 @@ let Home = {
         <div class="container h-100 d-flex justify-content-center align-items-center" style="padding-top: 15vh">
         <div class="row justify-content-center align-items-center">
             <div class="col-md-5 d-flex flex-column align-items-center">
-                <img src="${logo}"
+                <img src="https://jobs.gama.academy/assets/logo-horizontal-56fdf595cd4297fde69d61d5e08e0d40bbae324401df82d2fbfa39250b8c7993.png"
                     alt="logo" class="logo">
             </div>
             <div class="col-md-4">

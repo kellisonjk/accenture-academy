@@ -1,5 +1,5 @@
 import Auth from "../../service/auth.js";
-import logo from '../../images/logo-gama.png'
+//import logo from '../../images/logo-gama.png'
 
 let Home = {
     render : async () => {
@@ -25,7 +25,7 @@ let Home = {
                             </p>
                         </div>
                         <div class="col-md-5">
-                            <img src="${logo}"
+                            <img src="https://jobs.gama.academy/assets/logo-horizontal-56fdf595cd4297fde69d61d5e08e0d40bbae324401df82d2fbfa39250b8c7993.png"
                                 alt="logo" class="logo">
                         </div>
                     </div>

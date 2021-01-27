@@ -1,99 +1,78 @@
 import Auth from "../../service/auth.js";
+import baseURL from '../../service/baseURL.js';
+
+const userData = JSON.parse(localStorage.getItem('@userDataAccount'));
+
+let requestDataAccount = async () => {
+    let dataAccount = null
+    if(userData){
+
+        let {usuario: {login}, token} = userData;
+        
+        await axios
+            .get(`${baseURL}lancamentos/planos-conta?login=${login}`,  {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": token
+                }
+            })
+            .then(res => {
+                dataAccount = res.data
+
+            })
+            .catch(err => {
+                console.log('err', err.response)
+            })
+    }
+
+    return dataAccount
+}
+
 
 let Dash = {
     render: async () => {
         await Auth.securePage();
-        let userData = JSON.parse(localStorage.getItem('@userDataAccount'));
+        const dataAccount = await requestDataAccount();
         
         let view = ``;
 
         if(userData){
             let {usuario: user, conta} = userData;
-            let firstName = user.nome.split(' ')[0];
+            let userName = user.nome;
             let balance = conta.saldo.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
   
             view = `
             <div class="container">
-                <div class="d-flex justify-content-center">                
-                    <div class="card text-dark bg-warning mb-3">
-                        <div class="card-header">ATENÇÃO</div>
-                        <div class="card-body">
-                            <p class="card-text"><strong class="username">${firstName}</strong>, você atualmente possui um saldo de <strong>${balance}</strong>.</p>
+                <div class="container d-flex justify-content-between align-items-center">                
+                    <div class="col-8 card bg-primary mb-3">
+                        <div class="card-body text-white">
+                            <p class="card-text">Olá, <strong class="username">${userName}</strong>, seu saldo está em <strong>${balance}</strong>.</p>
                         </div>
-                    </div>
+                    </div>                 
+                    <div class="col-3 card bg-primary mb-3">
+                        <button type="button" class="btn btn-success">Realizar transferência</button>
+                    </div>         
                 </div>
 
-                <div class="row justify-content-between align-items-center flex-wrap">
-                    <div class="col-md-4 d-flex justify-content-center">
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3iHW9F8U24tel7OWvX4YKDzZH1n8Kt42Zsw&usqp=CAU"
-                                class="card-img-top img-dash">
-                            <div class="card-body">
-                                <h5 class="card-title">CSS 3</h5>
-                                <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum,
-                                    repellendus! Libero neque, earum, quod labore vero facilis animi fugiat nostrum officiis
-                                    reiciendis obcaecati veniam sed dolore. Quasi voluptatum officiis necessitatibus!</p>
+                <div class="container d-flex justify-content-center align-items-center">
+                    ${
+                        dataAccount.map(data => {
+                            return `
+                            <div class="col-6 ">
+                                <div class="card">
+                                    <div class="card-header">${data.descricao}</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Detalhamento</h5>
+                                        <p class="card-text"></p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex mt-2 justify-content-center">
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIDmu608ZZN0qZpKeJPh9mBUml69d1-lsGcA&usqp=CAU"
-                                class="card-img-top  img-dash">
-                            <div class="card-body">
-                                <h5 class="card-title">HTML 5</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ex deserunt
-                                    accusamus voluptatum. Maiores nesciunt quia non. Quam officia commodi quia consequatur
-                                    ratione reprehenderit facere, corrupti voluptate recusandae iusto deleniti.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex mt-2 justify-content-center">
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png"
-                                class="card-img-top  img-dash">
-                            <div class="card-body">
-                                <h5 class="card-title">JS</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas corrupti
-                                    minima maxime voluptatem quos recusandae, voluptatum aspernatur dolore quis rerum saepe in
-                                    odio. Magnam beatae pariatur nulla. Delectus, perspiciatis. Ad?</p>
-                            </div>
-                        </div>
-                    </div>
+                            `
+                        })
+
+                    }
                 </div>
 
-                <div class="row mt-5">
-                    <div class="col">
-                        
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Nome</th>
-                                    <th scope="col">Votou em</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>João Carlos</td>
-                                    <td>CSS, HTML</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Maria Rafaela</td>
-                                    <td>JavaScript</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Maria Julia</td>
-                                    <td>HTML</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                    
             </div>
             `
         }

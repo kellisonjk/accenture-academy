@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "live-server src --verbose",
-    "server-webpack": "live-server dist --verbose",
+    "start:dev": "webpack serve",
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean-build": "rm dist/bundle.js",
     "build-dev": "webpack --mode=development",

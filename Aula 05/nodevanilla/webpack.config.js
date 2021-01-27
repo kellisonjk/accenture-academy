@@ -5,14 +5,17 @@ const HWP = require('html-webpack-plugin');
 
 const config = {
   entry: ['@babel/polyfill', './src/app.js'],
-  
-    output: {
-        //filename: 'app.bundle.js',
-		filename: "bundle.js",
-		//filename: "[name].[hash].js",
-        path: path.join(__dirname, '/dist'),
-        publicPath: '/'
-    },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000,mode: 'development'
+  },
+  output: {
+      filename: "bundle.js",
+      //filename: "[name].[hash].js",
+      path: path.join(__dirname, '/dist'),
+      publicPath: '/'
+  },
   module: {
     rules: [
       {
@@ -37,11 +40,11 @@ const config = {
       
     ]
   },
-    plugins: [
+    /*plugins: [
         new HWP(
             {template: path.join(__dirname, '/src/index.html')}
         )
-    ]
+    ]*/
 };
 
 module.exports = config;
